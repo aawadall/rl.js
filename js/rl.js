@@ -30,7 +30,7 @@ var createAgent = function(numStates, numActions){
 
     var _learn = function(state1, state2, action, reward){
         _Q[state1][action] = (1 - alpha) * _Q[state1][action] +
-                              alpha * (reward + gamma * maxValue(state2));
+                              alpha * (reward + gamma * _bestValue(state2));
     };
 
     var _nextMove = function(state){
